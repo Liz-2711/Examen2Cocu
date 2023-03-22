@@ -68,7 +68,7 @@ namespace RabbitMQ.COnsumer
             channel.BasicConsume("book-queu", true, consumer);
 
 
-            channel.QueueDeclare("tarjetao-queu",
+            channel.QueueDeclare("billing-queu",
                  durable: true,
                  exclusive: false,
                  autoDelete: false,
@@ -80,10 +80,10 @@ namespace RabbitMQ.COnsumer
                 var message = Encoding.UTF8.GetString(body);
                 Console.WriteLine(message);
             };
-            channel.BasicConsume("tarjeta-queu", true, consumer);
+            channel.BasicConsume("billling-queu", true, consumer);
             // crear classees para esto 
-            PayInfo.PaymentTransaction.Status = errors.Any() ? Status.Errored : Status.Done;
-            PayInfo.PaymentTransaction.Errors = errors;
+            PayInfo.transaccionpagar.Status = Error.Any() ? Status.Errored : Status.Done;
+            PayInfo.transaccionpagar.Errors = err;
             return PayInfo;
         }
     }

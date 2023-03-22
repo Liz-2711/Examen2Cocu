@@ -63,10 +63,10 @@ public class Payvalidaccion
         {
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare("tarjeta-queu", false, false, false, null);
+                channel.QueueDeclare("billing-queu", false, false, false, null);
                 var json = JsonConvert.SerializeObject(transacionpagar);
                 var body = Encoding.UTF8.GetBytes(json);
-                channel.BasicPublish(string.Empty, "tarjeta-queu", null, body);
+                channel.BasicPublish(string.Empty, "billing-queu", null, body);
             }
         }
     }
@@ -80,13 +80,13 @@ de Shipping.*/
         CancellationToken token)
     {
         var errors = new List<string>();
-        if (PayInfo.NuemroTarjeta == Guid.Empty)
+        if (PayInfo.NuemroTrajeta == Guid.Empty)
         {
             errors.Add("Necesita  un numero valido.");
         }
         await Task.Delay(2000, token);
 
-        if (PayInfo.Cvv <= 0)
+        if (PayInfo.NumeroCvv <= 0||PayInfom.NumeroCvv == Guid.Empty)
         {
             errors.Add("La tarjeta debe tener un cvv valido.");
         }
@@ -99,11 +99,7 @@ de Shipping.*/
             errors.Add("La tarjeta debe tener una fecha de expiracion valida.");
         }
 
-        if (PayInfom.NumeroCvv == Guid.Empty)
-        {
-            errors.Add("El pago debe ser procesado para un basket valido.");
-        }
-
+    
 
         PayInfo.Status = errors.Any() ? Status.Errored : Status.Done;
         PayInfo.err = errors;

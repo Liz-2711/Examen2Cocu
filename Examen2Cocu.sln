@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examen2Cocu", "Examen2Cocu\Examen2Cocu.csproj", "{489741D0-E204-4F98-9413-BD88576C0443}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shipping", "Examen2Cocu\Shipping.csproj", "{489741D0-E204-4F98-9413-BD88576C0443}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing", "Billing\Billing.csproj", "{293101BC-FEC9-4F03-A705-E1120761D1BC}"
 EndProject

@@ -14,17 +14,14 @@ namespace SellBooksNow.Books.Controllers
     {
         Isbn =Books.Isbn,
 
-     Title = Books.Tittle,
+        Title = Books.Tittle,
 
-   Pages = Books.Pages
+        Pages = Books.Pages
 
-   Price = Book.Price
+       Price = Book.Price
 
-     NumberOfCopies =0
-}
-    };
-    Database.Bookd(BookDto);
+       NumberOfCopies =0
+        };
+    
 
-        return Ok(BookDto);
-}
 }
